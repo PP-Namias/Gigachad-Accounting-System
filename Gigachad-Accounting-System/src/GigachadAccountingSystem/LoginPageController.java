@@ -174,6 +174,7 @@ public class LoginPageController implements Initializable {
 
                     alert.successMessage("Successfully Login!");
                     // TO LINK THE MAIN FORM
+                    
                     Parent root = FXMLLoader.load(getClass().getResource("mainForm.fxml"));
                     Stage stage = new Stage();
                     Scene scene = new Scene(root);
