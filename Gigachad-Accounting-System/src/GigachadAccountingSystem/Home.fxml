@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -12,16 +11,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="1280.0" prefWidth="1084.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GigachadAccountingSystem.HomeController">
+<AnchorPane id="AnchorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="623.0" prefWidth="1271.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GigachadAccountingSystem.HomeController">
    <children>
       <Pane layoutX="-2.0" prefHeight="145.0" prefWidth="1062.0" style="-fx-background-color: #473E98;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label layoutX="224.0" layoutY="47.0" text="Jhon Keneth Namias" textFill="WHITE">
+            <Label fx:id="nameLabel" layoutX="224.0" layoutY="47.0" textFill="WHITE">
                <font>
                   <Font size="36.0" />
                </font>
             </Label>
-            <Label layoutX="227.0" layoutY="100.0" text="\@PP-Namias" textFill="WHITE">
+            <Label fx:id="usernameLabel" layoutX="227.0" layoutY="100.0" textFill="WHITE">
                <font>
                   <Font size="13.0" />
                </font>
@@ -101,11 +100,7 @@
       </VBox>
       <Pane layoutX="71.0" layoutY="30.0" prefHeight="145.0" prefWidth="141.0" style="-fx-background-color: #fff;">
          <children>
-            <ImageView fitHeight="137.0" fitWidth="132.0" layoutX="5.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/Jhon%20Keneth%20Namias%20(2).jpg" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="profileImageView" fitHeight="137.0" fitWidth="132.0" layoutX="5.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
          </children>
          <effect>
             <DropShadow blurType="GAUSSIAN" height="10.0" radius="4.5" width="10.0" />

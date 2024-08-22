@@ -33,6 +33,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
+
 /**
  *
  * @author WINDOWS 10
@@ -171,19 +175,24 @@ public class LoginPageController implements Initializable {
 
                 if (result.next()) {
                     // ONCE ALL DATA THAT USERS INSERT ARE CORRECT, THEN WE WILL PROCEED TO OUR MAIN FORM
-
-                    alert.successMessage("Successfully Login!");
-                    // TO LINK THE MAIN FORM
                     
-                    Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
+
+                    alert.successMessage("Successfully Login!" + login_username.getText());
+                        
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
+                    Parent root = loader.load();
+                    
+                    // Get the HomeController to pass the username
+                    HomeController homeController = loader.getController();
+                    homeController.setUserDetails(login_username.getText());
+
                     Stage stage = new Stage();
                     Scene scene = new Scene(root);
-                    
+
                     stage.setScene(scene);
-                    // TO SHOW OUR MAIN FORM
                     stage.show();
-                    
-                    // TO HIDE WINDOW OF LOGIN FORM
+
+                    // Hide the login form
                     login_btn.getScene().getWindow().hide();
                     
                 } else {
