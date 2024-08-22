@@ -50,7 +50,7 @@ public class HomeController implements Initializable {
         
         Node [] nodes = new  Node[15];
         
-        for(int i = 0; i<1; i++)
+        for(int i = 0; i<10; i++)
         {
             try {
                 nodes[i] = (Node)FXMLLoader.load(getClass().getResource("Item.fxml"));
@@ -59,8 +59,6 @@ public class HomeController implements Initializable {
             } catch (IOException ex) {
                 Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
-           
         }  
     }
-    
 }
