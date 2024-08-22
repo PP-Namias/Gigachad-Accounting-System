@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="623.0" prefWidth="1271.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GigachadAccountingSystem.HomeController">
+<AnchorPane id="AnchorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="1280.0" prefWidth="1084.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GigachadAccountingSystem.HomeController">
    <children>
       <Pane layoutX="-2.0" prefHeight="145.0" prefWidth="1062.0" style="-fx-background-color: #473E98;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -28,9 +28,9 @@
             </Label>
          </children>
       </Pane>
-      <VBox layoutX="-1.0" layoutY="145.0" prefHeight="438.0" prefWidth="252.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="146.0">
+      <VBox layoutX="-1.0" layoutY="145.0" prefHeight="901.0" prefWidth="379.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="33.0" AnchorPane.topAnchor="146.0">
          <children>
-            <Label prefHeight="30.0" prefWidth="252.0" text="General Ledger" textFill="#171717">
+            <Label fx:id="ledgerLabel" prefHeight="30.0" prefWidth="252.0" text="General Ledger" textFill="#171717">
                <font>
                   <Font size="13.0" />
                </font>
@@ -111,14 +111,14 @@
             <DropShadow blurType="GAUSSIAN" height="10.0" radius="4.5" width="10.0" />
          </effect>
       </Pane>
-      <ScrollPane layoutX="251.0" layoutY="182.0" prefHeight="406.0" prefWidth="810.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="182.0">
+      <ScrollPane layoutX="251.0" layoutY="188.0" prefHeight="1067.0" prefWidth="802.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="188.0">
          <content>
-            <VBox fx:id="pnl_scroll" prefHeight="404.0" prefWidth="1023.0" spacing="20.0" style="-fx-background-color: #fff;" />
+            <VBox fx:id="pnl_scroll" alignment="CENTER" fillWidth="false" prefHeight="1055.0" prefWidth="1663.0" spacing="20.0" style="-fx-background-color: #fff;" />
          </content>
       </ScrollPane>
       <HBox layoutX="251.0" layoutY="145.0" prefHeight="30.0" prefWidth="810.0" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="1.0">
          <children>
-            <Label fx:id="lbl_currentprojects" onMouseClicked="#handleButtonAction" prefHeight="30.0" prefWidth="207.0" text="Current Ledger(69)" textFill="#171717">
+            <Label fx:id="lbl_currentprojects" onMouseClicked="#handleButtonAction" prefHeight="30.0" prefWidth="170.0" text="Current Ledger(69)" textFill="#171717">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>

@@ -135,7 +135,7 @@ public class LoginPageController implements Initializable {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection connect
-                    = DriverManager.getConnection("jdbc:mysql://localhost/gigachadaccountingsystem", "root", "");
+                    = DriverManager.getConnection("jdbc:mysql://localhost/accounting_sys", "root", "");
             return connect;
         } catch (Exception e) {
             e.printStackTrace();

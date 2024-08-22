@@ -11,25 +11,47 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="657.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GigachadAccountingSystem.LoginPageController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GigachadAccountingSystem.LoginPageController">
    <children>
-      <AnchorPane fx:id="main_form" prefHeight="550.0" prefWidth="557.0" styleClass="white-bg" stylesheets="@../design/style.css">
+      <AnchorPane fx:id="main_form" prefHeight="624.0" prefWidth="777.0" styleClass="white-bg" stylesheets="@../design/style.css">
          <children>
-            <ImageView fitHeight="81.0" fitWidth="365.0" layoutX="285.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0a3247" height="708.0" layoutX="-3.0" layoutY="-8.0" strokeType="INSIDE" width="372.0">
+               <stroke>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.21150097250938416" green="0.5617284178733826" blue="0.7368420958518982" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </stroke>
+            </Rectangle>
+            <ImageView fitHeight="88.0" fitWidth="457.0" layoutX="386.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/Gigatechinc2022.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="388.0" fitWidth="365.0" layoutX="299.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="388.0" fitWidth="365.0" layoutX="438.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/illustration-vector-graphic-accounting-logo-design_717549-1011.png" />
                </image>
             </ImageView>
-            <AnchorPane fx:id="login_form" layoutX="12.0" layoutY="15.0" prefHeight="520.0" prefWidth="312.0">
+            <AnchorPane fx:id="login_form" layoutX="27.0" layoutY="77.0" prefHeight="581.0" prefWidth="312.0">
                <children>
-                  <ImageView fitHeight="111.0" fitWidth="70.0" layoutX="121.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="111.0" fitWidth="70.0" layoutX="130.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../assets/user%20(2).png" />
                      </image>
@@ -42,19 +64,19 @@
                   <TextField fx:id="login_username" layoutX="38.0" layoutY="164.0" prefHeight="30.0" prefWidth="237.0" promptText="Username" styleClass="textfield" stylesheets="@../design/style.css" />
                   <PasswordField fx:id="login_password" layoutX="38.0" layoutY="209.0" prefHeight="30.0" prefWidth="237.0" promptText="Password" styleClass="textfield" stylesheets="@../design/style.css" />
                   <TextField fx:id="login_showPassword" layoutX="38.0" layoutY="209.0" prefHeight="30.0" prefWidth="237.0" promptText="Password" styleClass="textfield" stylesheets="@../design/style.css" visible="false" />
-                  <CheckBox fx:id="login_selectShowPassword" layoutX="42.0" layoutY="246.0" mnemonicParsing="false" onAction="#showPassword" text="Show Password" />
-                  <Hyperlink fx:id="login_forgotPassword" layoutX="165.0" layoutY="241.0" onAction="#switchForm" text="Forgot Password?">
+                  <CheckBox fx:id="login_selectShowPassword" layoutX="42.0" layoutY="246.0" mnemonicParsing="false" onAction="#showPassword" text="Show Password" textFill="#f1fafe" />
+                  <Hyperlink fx:id="login_forgotPassword" layoutX="165.0" layoutY="241.0" onAction="#switchForm" text="Forgot Password?" textFill="#f1fafe">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Hyperlink>
-                  <Button fx:id="login_btn" layoutX="38.0" layoutY="290.0" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="237.0" styleClass="btn" stylesheets="@../design/style.css" text="Login" />
-                  <Label layoutX="103.0" layoutY="428.0" text="Register Account">
+                  <Button fx:id="login_btn" layoutX="38.0" layoutY="290.0" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="237.0" style="-fx-background-color: #3fc1f1;" styleClass="btn" stylesheets="@../design/style.css" text="Login" />
+                  <Label layoutX="103.0" layoutY="428.0" text="Register Account" textFill="#f1fafe">
                      <font>
                         <Font name="Gill Sans MT" size="15.0" />
                      </font>
                   </Label>
-                  <Button fx:id="login_createAccount" layoutX="38.0" layoutY="460.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="237.0" styleClass="btn" stylesheets="@../design/style.css" text="Create Account" />
+                  <Button fx:id="login_createAccount" layoutX="38.0" layoutY="460.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="237.0" style="-fx-background-color: #3fc1f1;" styleClass="btn" stylesheets="@../design/style.css" text="Create Account" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="signup_form" layoutX="12.0" layoutY="15.0" prefHeight="520.0" prefWidth="312.0" visible="false">
@@ -68,13 +90,13 @@
                   <TextField fx:id="signup_username" layoutX="39.0" layoutY="155.0" prefHeight="30.0" prefWidth="237.0" promptText="Username" styleClass="textfield" stylesheets="@../design/style.css" />
                   <PasswordField fx:id="signup_password" layoutX="39.0" layoutY="197.0" prefHeight="30.0" prefWidth="237.0" promptText="Password" styleClass="textfield" stylesheets="@../design/style.css" />
                   <PasswordField fx:id="signup_cPassword" layoutX="37.0" layoutY="240.0" prefHeight="30.0" prefWidth="237.0" promptText="Confirm Password" styleClass="textfield" stylesheets="@../design/style.css" />
-                  <Button fx:id="signup_btn" layoutX="37.0" layoutY="366.0" mnemonicParsing="false" onAction="#register" prefHeight="40.0" prefWidth="237.0" styleClass="btn" stylesheets="@../design/style.css" text="Sign Up" />
+                  <Button fx:id="signup_btn" layoutX="37.0" layoutY="366.0" mnemonicParsing="false" onAction="#register" prefHeight="40.0" prefWidth="237.0" style="-fx-background-color: #3fc1f1;" styleClass="btn" stylesheets="@../design/style.css" text="Sign Up" />
                   <Label layoutX="110.0" layoutY="443.0" text="Sign In Account">
                      <font>
                         <Font name="Gill Sans MT" size="15.0" />
                      </font>
                   </Label>
-                  <Button fx:id="signup_loginAccount" layoutX="38.0" layoutY="476.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="237.0" styleClass="btn" stylesheets="@../design/style.css" text="Login Account" />
+                  <Button fx:id="signup_loginAccount" layoutX="38.0" layoutY="476.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="237.0" style="-fx-background-color: #3fc1f1;" styleClass="btn" stylesheets="@../design/style.css" text="Login Account" />
                   <ComboBox fx:id="signup_selectQuestion" layoutX="37.0" layoutY="284.0" prefHeight="30.0" prefWidth="237.0" promptText="Select Question" />
                   <TextField fx:id="signup_answer" layoutX="37.0" layoutY="325.0" prefHeight="30.0" prefWidth="237.0" promptText="Answer" styleClass="textfield" stylesheets="@../design/style.css" />
                   <ImageView fitHeight="70.0" fitWidth="72.0" layoutX="123.0" pickOnBounds="true" preserveRatio="true">
@@ -97,8 +119,8 @@
                      </font>
                   </Label>
                   <TextField fx:id="forgot_answer" layoutX="37.0" layoutY="230.0" prefHeight="30.0" prefWidth="237.0" promptText="Answer" styleClass="textfield" stylesheets="@../design/style.css" />
-                  <Button fx:id="forgot_proceedBtn" layoutX="38.0" layoutY="277.0" mnemonicParsing="false" onAction="#forgotPassword" prefHeight="40.0" prefWidth="237.0" styleClass="btn" stylesheets="@../design/style.css" text="Proceed" />
-                  <Button fx:id="forgot_backBtn" layoutX="37.0" layoutY="461.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="237.0" styleClass="btn" stylesheets="@../design/style.css" text="Back" />
+                  <Button fx:id="forgot_proceedBtn" layoutX="38.0" layoutY="277.0" mnemonicParsing="false" onAction="#forgotPassword" prefHeight="40.0" prefWidth="237.0" style="-fx-background-color: #3fc1f1;" styleClass="btn" stylesheets="@../design/style.css" text="Proceed" />
+                  <Button fx:id="forgot_backBtn" layoutX="37.0" layoutY="461.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="237.0" style="-fx-background-color: #3fc1f1;" styleClass="btn" stylesheets="@../design/style.css" text="Back" />
                   <ComboBox fx:id="forgot_selectQuestion" layoutX="37.0" layoutY="184.0" prefHeight="30.0" prefWidth="237.0" promptText="Select Question" />
                   <TextField fx:id="forgot_username" layoutX="37.0" layoutY="141.0" prefHeight="30.0" prefWidth="237.0" promptText="Username" />
                </children>
@@ -115,12 +137,17 @@
                         <Font name="Gill Sans MT" size="20.0" />
                      </font>
                   </Label>
-                  <Button fx:id="changePass_proceedBtn" layoutX="36.0" layoutY="260.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="40.0" prefWidth="237.0" styleClass="btn" stylesheets="@../design/style.css" text="Change Password" />
-                  <Button fx:id="changePass_backBtn" layoutX="37.0" layoutY="461.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="237.0" styleClass="btn" stylesheets="@../design/style.css" text="Back" />
+                  <Button fx:id="changePass_proceedBtn" layoutX="36.0" layoutY="260.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="40.0" prefWidth="237.0" style="-fx-background-color: #3fc1f1;" styleClass="btn" stylesheets="@../design/style.css" text="Change Password" />
+                  <Button fx:id="changePass_backBtn" layoutX="37.0" layoutY="461.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="237.0" style="-fx-background-color: #3fc1f1;" styleClass="btn" stylesheets="@../design/style.css" text="Back" />
                   <PasswordField fx:id="changePass_password" layoutX="36.0" layoutY="167.0" prefHeight="30.0" prefWidth="237.0" promptText="Password" />
                   <PasswordField fx:id="changePass_cPassword" layoutX="36.0" layoutY="209.0" prefHeight="30.0" prefWidth="237.0" promptText="Confirm Password" />
                </children>
             </AnchorPane>
+            <ImageView fitHeight="261.0" fitWidth="496.0" layoutX="368.0" layoutY="441.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../Downloads/vecteezy_abstract-wavy-stripes-on-a-white-background-isolated-wave_4230475.jpg" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GigachadAccountingSystem;
 
 import java.io.IOException;
@@ -10,26 +5,23 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.NodeOrientation;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
-/**
- *
- * @author oXCToo
- */
 public class HomeController implements Initializable {
     
     @FXML
     private Label label;
+
+    @FXML
+    private Label ledgerLabel;
     
-      @FXML
+    @FXML
     private VBox pnl_scroll;
     
     @FXML
@@ -39,26 +31,36 @@ public class HomeController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        refreshNodes();
         
-         refreshNodes();
+        // Add event handler for ledgerLabel
+        ledgerLabel.setOnMouseClicked(this::handleLedgerLabelClick);
     }    
     
-    private void refreshNodes()
-    {
+    private void refreshNodes() {
         pnl_scroll.getChildren().clear();
         
-        Node [] nodes = new  Node[15];
+        Node[] nodes = new Node[15];
         
-        for(int i = 0; i<10; i++)
-        {
+        for (int i = 0; i < 10; i++) {
             try {
-                nodes[i] = (Node)FXMLLoader.load(getClass().getResource("Item.fxml"));
-               pnl_scroll.getChildren().add(nodes[i]);
-                
+                nodes[i] = (Node) FXMLLoader.load(getClass().getResource("/GigachadAccountingSystem/Item.fxml"));
+                pnl_scroll.getChildren().add(nodes[i]);
             } catch (IOException ex) {
                 Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }  
+    }
+    
+    private void handleLedgerLabelClick(MouseEvent event) {
+        try {
+            String fxmlPath = "/GigachadAccountingSystem/Ledger.fxml";
+            System.out.println("Loading FXML: " + fxmlPath);
+            Node ledgerNode = FXMLLoader.load(getClass().getResource(fxmlPath));
+            pnl_scroll.getChildren().clear();
+            pnl_scroll.getChildren().add(ledgerNode);
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
