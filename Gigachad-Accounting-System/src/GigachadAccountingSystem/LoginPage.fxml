@@ -44,9 +44,9 @@
                   <Image url="@../assets/Gigatechinc2022.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="388.0" fitWidth="365.0" layoutX="438.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="323.0" fitWidth="320.0" layoutX="462.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/illustration-vector-graphic-accounting-logo-design_717549-1011.png" />
+                  <Image url="@images/logoo.png" />
                </image>
             </ImageView>
             <AnchorPane fx:id="login_form" layoutX="27.0" layoutY="77.0" prefHeight="581.0" prefWidth="312.0">
@@ -143,9 +143,9 @@
                   <PasswordField fx:id="changePass_cPassword" layoutX="36.0" layoutY="209.0" prefHeight="30.0" prefWidth="237.0" promptText="Confirm Password" />
                </children>
             </AnchorPane>
-            <ImageView fitHeight="261.0" fitWidth="496.0" layoutX="368.0" layoutY="441.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="255.0" fitWidth="507.0" layoutX="368.0" layoutY="441.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../Downloads/vecteezy_abstract-wavy-stripes-on-a-white-background-isolated-wave_4230475.jpg" />
+                  <Image url="@images/vecteezy_abstract-wavy-stripes-on-a-white-background-isolated-wave_4230475.jpg" />
                </image>
             </ImageView>
          </children>
