@@ -1,12 +1,30 @@
 package GigachadAccountingSystem;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfDocument;
+import com.itextpdf.text.pdf.PdfWriter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Label;
+import javafx.scene.control.Button;
+import javafx.geometry.Pos;
+import javafx.print.PrinterJob;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -43,9 +61,6 @@ public class PayrollController {
     @FXML
     private Label total;
 
-    
-    
-    
     @FXML
     private Label sss;
 
@@ -66,9 +81,10 @@ public class PayrollController {
 
     @FXML
     private Label totalNet;
-    
-    
-    
+
+    @FXML
+    private Button printButton;
+
     @FXML
     private TableView<PayrollModel> payrollTable;
 
@@ -162,7 +178,6 @@ public class PayrollController {
                         resultSet.getString("department"),
                         resultSet.getString("approvalStatus"),
                         resultSet.getString("notes")
-                        
                 );
                 payrollData.add(payrollModel);
             }
@@ -183,43 +198,42 @@ public class PayrollController {
             showDep.setText(payrollModel.getDepartment());
             showBal.setText(String.valueOf(payrollModel.getBalance()));
 
-           
             double basicRate = payrollModel.getBalance(); 
             double overtime = payrollModel.getoverTime(); 
             double allowances = payrollModel.getAllowances(); 
             double otherPayments = 0; 
 
-            
             basicR.setText(String.valueOf(basicRate));
             overT.setText(String.valueOf(overtime));
             allowance.setText(String.valueOf(allowances));
             others.setText(String.valueOf(otherPayments));
 
-            
             double totalPayment = basicRate + overtime + allowances + otherPayments;
             total.setText(String.valueOf(totalPayment));
             
-        double sssAmount = 2500;
-        double pagibigAmount = 3000;
-        double philhealthAmount = 4000;
-        double absentDeductions = payrollModel.getAbsences();
-        double otherDeductions = 0;
+            double sssAmount = 2500;
+            double pagibigAmount = 3000;
+            double philhealthAmount = 4000;
+            double absentDeductions = payrollModel.getAbsences();
+            double otherDeductions = 0;
 
-        sss.setText(String.valueOf(sssAmount));
-        pagibig.setText(String.valueOf(pagibigAmount));
-        philhealth.setText(String.valueOf(philhealthAmount));
-        absent.setText(String.valueOf(absentDeductions));
-        otherDeduc.setText(String.valueOf(otherDeductions));
+            sss.setText(String.valueOf(sssAmount));
+            pagibig.setText(String.valueOf(pagibigAmount));
+            philhealth.setText(String.valueOf(philhealthAmount));
+            absent.setText(String.valueOf(absentDeductions));
+            otherDeduc.setText(String.valueOf(otherDeductions));
 
-       
-        double totalDeductions = sssAmount + pagibigAmount + philhealthAmount + absentDeductions + otherDeductions;
-        totalDeduc.setText(String.valueOf(totalDeductions));
+            double totalDeductions = sssAmount + pagibigAmount + philhealthAmount + absentDeductions + otherDeductions;
+            totalDeduc.setText(String.valueOf(totalDeductions));
 
-      
-        double netTotalAmount = totalPayment - totalDeductions;
-        totalNet.setText(String.valueOf(netTotalAmount));
-        
-    } else {
+            double netTotalAmount = totalPayment - totalDeductions;
+            totalNet.setText(String.valueOf(netTotalAmount));
+        } else {
+            clearLabels();
+        }
+    }
+
+    private void clearLabels() {
         showID.setText("");
         showName.setText("");
         showDate.setText("");
@@ -238,5 +252,61 @@ public class PayrollController {
         totalDeduc.setText("");
         totalNet.setText("");
     }
-}
+
+     @FXML
+    private void handlePrintAction() {
+        File pdfFile = savePayslipAsPDF(); // Save the payslip as PDF
+        if (pdfFile != null && pdfFile.exists()) {
+            showPDF(pdfFile); // Show the PDF after it's saved
+        }
+    }
+
+    private File savePayslipAsPDF() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save Payslip as PDF");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF Files", "*.pdf"));
+        File file = fileChooser.showSaveDialog(null);
+
+        if (file != null) {
+            Document document = new Document();
+
+            try {
+                PdfWriter.getInstance(document, new FileOutputStream(file));
+                document.open();
+
+                document.add(new Paragraph("Employee ID: " + showID.getText()));
+                document.add(new Paragraph("Employee Name: " + showName.getText()));
+                document.add(new Paragraph("Date: " + showDate.getText()));
+                document.add(new Paragraph("Department: " + showDep.getText()));
+                document.add(new Paragraph("Basic Rate: " + basicR.getText()));
+                document.add(new Paragraph("Overtime: " + overT.getText()));
+                document.add(new Paragraph("Allowances: " + allowance.getText()));
+                document.add(new Paragraph("Other Payments: " + others.getText()));
+                document.add(new Paragraph("Total Payment: " + total.getText()));
+                document.add(new Paragraph("SSS: " + sss.getText()));
+                document.add(new Paragraph("Pag-IBIG: " + pagibig.getText()));
+                document.add(new Paragraph("PhilHealth: " + philhealth.getText()));
+                document.add(new Paragraph("Absent Deductions: " + absent.getText()));
+                document.add(new Paragraph("Other Deductions: " + otherDeduc.getText()));
+                document.add(new Paragraph("Total Deductions: " + totalDeduc.getText()));
+                document.add(new Paragraph("Net Total: " + totalNet.getText()));
+
+                document.close();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return file;
+    }
+
+    private void showPDF(File pdfFile) {
+        if (pdfFile != null && pdfFile.exists()) {
+            try {
+                Desktop.getDesktop().open(pdfFile); // Open the PDF file
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

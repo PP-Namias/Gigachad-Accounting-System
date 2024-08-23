@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
@@ -227,11 +228,12 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="totalNet" layoutX="1306.0" layoutY="1.0" prefHeight="35.0" prefWidth="169.0" text="000.000">
+                  <Label fx:id="totalNet" layoutX="1291.0" layoutY="1.0" prefHeight="35.0" prefWidth="169.0" text="000.000">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
+                  <Button fx:id="printButton" layoutX="1446.0" layoutY="14.0" mnemonicParsing="false" onAction="#handlePrintAction" prefHeight="25.0" prefWidth="55.0" text="PRINT" />
                </children>
             </Pane>
          </children>
