@@ -26,6 +26,9 @@ public class HomeController implements Initializable {
     private Label ledgerLabel;
     
     @FXML
+    private Label payrollLabel;
+    
+    @FXML
     private VBox pnl_scroll;
     
     @FXML
@@ -48,8 +51,8 @@ public class HomeController implements Initializable {
         
         // Add event handler for ledgerLabel
         ledgerLabel.setOnMouseClicked(this::handleLedgerLabelClick);
+        payrollLabel.setOnMouseClicked(this::handlePayrollLabelClick);
     }    
-
 
     private static final String DEFAULT_PROFILE_IMAGE = "default-profile.jpg";
 
@@ -117,4 +120,17 @@ public class HomeController implements Initializable {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    private void handlePayrollLabelClick(MouseEvent event) {
+        try {
+            String fxmlPath = "/GigachadAccountingSystem/Payroll.fxml";
+            System.out.println("Loading FXML: " + fxmlPath);
+            Node payrollNode = FXMLLoader.load(getClass().getResource(fxmlPath));
+            pnl_scroll.getChildren().clear();
+            pnl_scroll.getChildren().add(payrollNode);
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
+

@@ -64,7 +64,7 @@
                   <Insets left="40.0" />
                </padding>
             </Label>
-            <Label prefHeight="30.0" prefWidth="252.0" text="Payroll" textFill="#171717">
+            <Label fx:id="payrollLabel" prefHeight="30.0" prefWidth="252.0" text="Payroll" textFill="#171717">
                <font>
                   <Font size="13.0" />
                </font>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="1055.0" prefWidth="1663.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GigachadAccountingSystem.PayrollController">
+    <children>
+        <Label layoutX="20.0" layoutY="20.0" text="Payroll">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <TableView fx:id="payrollTable" layoutX="42.0" layoutY="80.0" prefHeight="302.0" prefWidth="1583.0">
+            <columns>
+                <TableColumn fx:id="dateColumn" prefWidth="94.0" text="Date" />
+                <TableColumn fx:id="accountNameColumn" prefWidth="180.0" text="Account Name" />
+                <TableColumn fx:id="journalEntryReferenceColumn" prefWidth="164.66668701171875" text="Journal Entry Reference" />
+                <TableColumn fx:id="descriptionColumn" prefWidth="154.6666259765625" text="Description" />
+                <TableColumn fx:id="debitColumn" prefWidth="149.6666259765625" text="Debit" />
+                <TableColumn fx:id="creditColumn" prefWidth="162.6666259765625" text="Credit" />
+                <TableColumn fx:id="balanceColumn" prefWidth="162.6666259765625" text="Balance" />
+                <TableColumn fx:id="postingReferenceColumn" prefWidth="148.0" text="Posting Reference" />
+                <TableColumn fx:id="currencyColumn" prefWidth="123.666748046875" text="Currency" />
+                <TableColumn fx:id="departmentColumn" prefWidth="123.333251953125" text="Department" />
+                <TableColumn fx:id="notesColumn" prefWidth="132.0" text="Notes" />
+                <TableColumn fx:id="approvalStatusColumn" prefWidth="278.0" text="Approval Status" />
+            </columns>
+        </TableView>
+      <Pane layoutX="40.0" layoutY="421.0" prefHeight="580.0" prefWidth="1583.0" style="-fx-background-color: #D3D3D3;">
+         <children>
+            <Pane fx:id="netTotal" layoutX="18.0" layoutY="93.0" prefHeight="416.0" prefWidth="1539.0" style="-fx-background-color: white;">
+               <children>
+                  <Label layoutX="34.0" layoutY="52.0" prefHeight="27.0" prefWidth="150.0" text="ACCOUNT NAME:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="694.0" layoutY="52.0" prefHeight="27.0" prefWidth="121.0" text="DEPARTMENT:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="694.0" layoutY="14.0" text="DATE:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="1261.0" layoutY="14.0" text="RATE:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="34.0" layoutY="14.0" text="EMPLOYEE ID:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="showID" layoutX="170.0" layoutY="14.0" prefHeight="27.0" prefWidth="250.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="showName" layoutX="191.0" layoutY="52.0" prefHeight="27.0" prefWidth="489.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="showDep" layoutX="822.0" layoutY="52.0" prefHeight="27.0" prefWidth="378.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="showDate" layoutX="755.0" layoutY="14.0" prefHeight="17.0" prefWidth="345.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="showBal" layoutX="1329.0" layoutY="14.0" prefHeight="27.0" prefWidth="179.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="17.0" layoutY="91.0" prefHeight="0.0" prefWidth="1505.0" />
+                  <Separator layoutX="754.0" layoutY="101.0" orientation="VERTICAL" prefHeight="302.0" prefWidth="3.0" />
+                  <Label layoutX="34.0" layoutY="101.0" text="EARNINGS">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="787.0" layoutY="101.0" text="DEDUCTIONS">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="35.0" layoutY="149.0" text="BASIC RATE:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="35.0" layoutY="185.0" text="OVER TIME:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="35.0" layoutY="218.0" text="ALLOWANCES:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="35.0" layoutY="252.0" text="OTHERS:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="22.0" layoutY="358.0" prefHeight="3.0" prefWidth="710.0" />
+                  <Label layoutX="32.0" layoutY="371.0" text="TOTAL:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="total" layoutX="563.0" layoutY="371.0" prefHeight="35.0" prefWidth="169.0" text="000.000">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="basicR" layoutX="563.0" layoutY="145.0" prefHeight="35.0" prefWidth="169.0" text="000.000">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="overT" layoutX="563.0" layoutY="181.0" prefHeight="35.0" prefWidth="169.0" text="000.000">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="allowance" layoutX="563.0" layoutY="214.0" prefHeight="35.0" prefWidth="169.0" text="000.000">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="others" layoutX="563.0" layoutY="248.0" prefHeight="35.0" prefWidth="169.0" text="000.000">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="787.0" layoutY="149.0" text="SSS:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="787.0" layoutY="185.0" text="PAG-IBIG:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="787.0" layoutY="218.0" text="PHILHEALTH:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="787.0" layoutY="252.0" text="ABSENCES:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="786.0" layoutY="286.0" text="OTHERS:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="778.0" layoutY="357.0" prefHeight="3.0" prefWidth="710.0" />
+                  <Label layoutX="782.0" layoutY="371.0" text="TOTAL:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="totalDeduc" layoutX="1306.0" layoutY="371.0" prefHeight="35.0" prefWidth="169.0" text="000.000">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="sss" layoutX="1306.0" layoutY="145.0" prefHeight="35.0" prefWidth="169.0" text="000.000">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="pagibig" layoutX="1306.0" layoutY="181.0" prefHeight="35.0" prefWidth="169.0" text="000.000">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="philhealth" layoutX="1306.0" layoutY="214.0" prefHeight="35.0" prefWidth="169.0" text="000.000">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="absent" layoutX="1306.0" layoutY="248.0" prefHeight="35.0" prefWidth="169.0" text="000.000">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="otherDeduc" layoutX="1306.0" layoutY="282.0" prefHeight="35.0" prefWidth="169.0" text="000.000">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="18.0" layoutY="14.0" prefHeight="71.0" prefWidth="1539.0" style="-fx-background-color: white;">
+               <children>
+                  <Label layoutX="603.0" layoutY="9.0" text="EMPLOYEE PAYSLIP">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="18.0" layoutY="515.0" prefHeight="53.0" prefWidth="1539.0" style="-fx-background-color: white;">
+               <children>
+                  <Label layoutX="27.0" layoutY="9.0" text=" NET TOTAL:">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="totalNet" layoutX="1306.0" layoutY="1.0" prefHeight="35.0" prefWidth="169.0" text="000.000">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+    </children>
+</AnchorPane>
